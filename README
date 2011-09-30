@@ -1,0 +1,25 @@
+What is the PHP-Auto-Scalar?
+
+The PHP-Auto-Scalar is a PHP "module" that automatically increases or decreases the number of Web Role instaces in a Windows Azure deployment based on the performace of the instances. The module is intended to run in a Windows Azure Worker Role as part of a Windows Azure deployment (although it can be run locally as well).
+
+Much of the code for this module is based on the 4 part tutorial that starts here: http://azurephp.interoperabilitybridges.com/articles/scaling-php-applications-on-windows-azure-part-i-performance-metrics. I suggest reading through the tutorial to get a better idea of how scaling works for PHP in Azure.
+
+
+How does it work?
+
+The module reads performance counter information (such as CPU usage, available memory, etc) from Windows Azure Table storage and increases or decreases instances based on averages. This of course means that diagnostics have been turned on for the deployment. (When diagnostics are turned on, Windows Azure begins writing performace counter information to your Table storage.) For more information on turning on diagnostics, see these blog posts:
+
+http://blogs.msdn.com/b/silverlining/archive/2011/09/19/how-to-get-diagnostics-info-for-azure-php-applications-part-1.aspx
+
+http://blogs.msdn.com/b/silverlining/archive/2011/09/22/how-to-get-diagnostics-info-for-azure-php-applications-part-2.aspx
+
+
+How do I use it?
+
+Assuming that you have a Windows Azure account and that you have an appliction deployed (with diagnostics on) in Windows Azure...
+
+1. Fill in values for the constants in the storageConfig.php file.
+2. Adjust the logic in the scale_check function (scaling_functions.php) to your liking.
+3. Run the module from the command line locally. This will give you an idea for how the module works.
+
+To use this in "real life", you'll need to create a deployment in which th Auto-Scalar is running in a Worker Role and is automatically started from the command line in the Worker Role. Details on how to do this are coming soon).
