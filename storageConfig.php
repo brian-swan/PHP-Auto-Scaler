@@ -14,7 +14,7 @@ define("PROD_SITE", true);
 
 
 define("EXCEPTION_TABLE", "ExceptionEntry");
-define("STATUS_TABLE", "StatusTable");
+define("STATUS_TABLE", "ScaleStatus");
 
 // Define DNS_PREFIX as the DNS prefix for you hosted service.
 // e.g. If your hosted service endpoint is myprefix.cloudapp.net,
