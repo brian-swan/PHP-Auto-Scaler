@@ -70,12 +70,7 @@ function get_metrics($deployment_id, $ago = "-15 minutes") {
 		// Global totals        
 		$arr['totals'][$m->countername]['count'] = (!isset($arr['totals'][$m->countername]['count'])) ? 1 : $arr['totals'][$m->countername]['count'] + 1;        
 		$arr['totals'][$m->countername]['total'] = (!isset($arr['totals'][$m->countername]['total'])) ? $m->countervalue : $arr['totals'][$m->countername]['total'] + $m->countervalue;        
-		$arr['totals'][$m->countername]['average'] = (!isset($arr['totals'][$m->countername]['average'])) ? $m->countervalue : $arr['totals'][$m->countername]['total'] / $arr['totals'][$m->countername]['count'];         
-		
-		// Totals by instance        
-		$arr[$m->roleinstance][$m->countername]['count'] = (!isset($arr[$m->roleinstance][$m->countername]['count'])) ? 1 : $arr[$m->roleinstance][$m->countername]['count'] + 1;        
-		$arr[$m->roleinstance][$m->countername]['total'] = (!isset($arr[$m->roleinstance][$m->countername]['total'])) ? $m->countervalue : $arr[$m->roleinstance][$m->countername]['total'] + $m->countervalue;        
-		$arr[$m->roleinstance][$m->countername]['average'] = (!isset($arr[$m->roleinstance][$m->countername]['average'])) ? $m->countervalue : ($arr[$m->roleinstance][$m->countername]['total'] / $arr[$m->roleinstance][$m->countername]['count']);    
+		$arr['totals'][$m->countername]['average'] = (!isset($arr['totals'][$m->countername]['average'])) ? $m->countervalue : $arr['totals'][$m->countername]['total'] / $arr['totals'][$m->countername]['count'];             
 	}    
 	return $arr;
 }
