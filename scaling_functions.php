@@ -47,7 +47,7 @@ function scale_check($metrics) {
 function get_num_instances($instances, $role_name) {  
 	$count = 0;
 	foreach($instances as $instance) {
-		if ($instance['rolename'] == $role_name) // && $instance['instancestatus'] == 'Ready')  //this logic isn't working
+		if ($instance['rolename'] == $role_name)
 			$count++;
 	}
 	return $count;
